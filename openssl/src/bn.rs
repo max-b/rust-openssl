@@ -1126,6 +1126,12 @@ impl fmt::Display for BigNum {
     }
 }
 
+impl From<u32> for BigNum {
+    fn from(num: u32) -> Self {
+        Self::from_u32(num).unwrap()
+    }
+}
+
 impl PartialEq<BigNumRef> for BigNumRef {
     fn eq(&self, oth: &BigNumRef) -> bool {
         self.cmp(oth) == Ordering::Equal
